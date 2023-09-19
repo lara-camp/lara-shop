@@ -1,6 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('admin-backend/login',[LoginController::class,'loginForm']);
+Route::get('admin-backend/logout',[LoginController::class,'getLogout']);
+Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('postLogin');
+Route::group(['prefix' => 'admin-backend','middleware' => 'admin'], function() {
+    Route::get('index',[IndexController::class,'index']);
+});
+
+Auth::routes();
+
