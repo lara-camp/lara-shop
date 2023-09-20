@@ -29,42 +29,22 @@
         <ul class="nav side-menu">
           <li><a href="{{ route('backendIndex') }}"><i class="fa fa-home"></i>Home</a></li>
               
-          <li><a><i class="fa fa-laptop"></i>View<span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-laptop"></i>Category<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="#">Create</a></li>
                 <li><a href="#">Listing</a></li>
               </ul>
           </li>
 
-          <li><a><i class="fa fa-edit"></i>Bed<span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Listing</a></li>
-              </ul>
-          </li>
-
-          <li><a><i class="fa fa-bank"></i> Amenities<span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Listing</a></li>
-              </ul>
-            </li>
-
-          <li><a><i class="fa fa-beer"></i>Special Feature<span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu">
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Listing</a></li>
-              </ul>
-            </li>
-            
-          <li><a><i class="fa fa-dashboard"></i> Room<span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-edit"></i>Product<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="#">Create</a></li>
                 <li><a href="#">Listing</a></li>
               </ul>
           </li>
             
-          <li><a><i class="fa fa-edit"></i>Reservation<span class="fa fa-chevron-down"></span></a>
+            
+          <li><a><i class="fa fa-edit"></i>Order<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="#">Listing</a></li>
               </ul>
