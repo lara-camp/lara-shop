@@ -16,7 +16,7 @@ class settingsTableSeedeer extends Seeder
         DB::table('settings')->truncate();
         DB::table('settings')->insert([
             'id'            => '1',
-            'name'          => 'Lara Shop',
+            'name'          => 'LARA Shop',
             'email'         => 'larashop@gmail.com',
             'address'       => '132st, Kandawgi Tower, Tamwe Township, Yangon',
             'online_phone'  => '09443332200',

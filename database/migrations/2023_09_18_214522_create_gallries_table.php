@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gallries', function (Blueprint $table) {
-            $table->id();
-            $table->integer('product_id',100);
-            $table->integer('created_by');
-            $table->integer('updated_by');
-            $table->integer('deleted_by')->nullable();
+            $table->id(); // This creates a single auto-increment primary key 'id' column.
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

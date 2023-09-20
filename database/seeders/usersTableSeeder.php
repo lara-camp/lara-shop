@@ -18,7 +18,7 @@ class usersTableSeeder extends Seeder
             'id'          => '1',
             'name'        => 'admin',
             'email'       => 'larashop@gmail.com',
-            'password'    => 'password',
+            'password'    => bcrypt('password'),
             'created_at'  => date('Y-m-d'),
             'updated_at'  => date('Y-m-d'),
         ]);

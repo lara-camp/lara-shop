@@ -20,11 +20,11 @@ use App\Http\Controllers\Home\IndexController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('admin-backend/login',[LoginController::class,'loginForm']);
-Route::get('admin-backend/logout',[LoginController::class,'getLogout']);
+Route::get('admin-backend/login',[LoginController::class,'loginForm'])->name('login');
+Route::get('admin-backend/logout',[LoginController::class,'getLogout'])->name('logout');
 Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('postLogin');
 Route::group(['prefix' => 'admin-backend','middleware' => 'admin'], function() {
-    Route::get('index',[IndexController::class,'index']);
+    Route::get('index',[IndexController::class,'index'])->name('backendIndex');
 });
 
 Auth::routes();

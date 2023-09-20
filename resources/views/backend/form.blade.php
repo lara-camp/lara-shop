@@ -11,11 +11,8 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="x_panel">
-
                         <div class="x_content">
-
                                 <form action="" method="post" id="create-form" novalidate>
-
                                 @csrf
                                 <span class="section">Create View</span>
                                 <div class="field item ">

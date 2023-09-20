@@ -12,16 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',100);
-            $table->integer('phone',100);
-            $table->string('email',100);
+            $table->id(); // This creates a single auto-increment primary key 'id' column.
+            $table->string('name', 100);
+            $table->string('phone', 100); // Change the data type as needed.
+            $table->string('email', 100);
             $table->longText('address');
-            $table->integer('created_by');
-            $table->integer('updated_by');
-            $table->integer('deleted_by')->nullable();
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            // Define other indexes, constraints, or foreign keys as needed.
         });
     }
 
