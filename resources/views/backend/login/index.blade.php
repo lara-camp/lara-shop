@@ -35,45 +35,45 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="{{ route('postLogin') }}" method="POST" />
-            @csrf
-              <h1>Login Form</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" value="{{ old('name') }}"  name="name" />
-              </div>
-            @if($errors->has('name'))
-                <p style="color:red">{{ $errors->first('name') }}</p>
-            @endif
-              <div>
-                <input type="password" class="form-control" placeholder="Password" name="password" />
-              </div>
-            @if($errors->has('password'))
-              <p style="color:red">{{ $errors->first('password') }}</p>
-            @endif
-              <div class="checkbox">
-                <label for="remember">
-                  <input type="checkbox" name="remember" id="remember" value="1" > Remember Me ?
-                </label>
-              </div>
-              <div>
-                <button type="submit" class="btn btn-secondary" name="submit" >Login</button>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="javascript:void(0);" class="to_register"> Create Account </a>
-                </p>
+            <form action="{{ route('postLogin') }}" method="POST" >
+                @csrf
+                <h1>Login Form</h1>
+                <div>
+                    <input type="text" class="form-control" placeholder="Username" value="{{ old('name') }}"  name="name" />
+                </div>
+                @if($errors->has('name'))
+                    <p style="color:red">{{ $errors->first('name') }}</p>
+                @endif
+                <div>
+                    <input type="password" class="form-control" placeholder="Password" name="password" />
+                </div>
+                @if($errors->has('password'))
+                <p style="color:red">{{ $errors->first('password') }}</p>
+                @endif
+                <div class="checkbox">
+                    <label for="remember">
+                    <input type="checkbox" name="remember" id="remember" value="1" > Remember Me ?
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-secondary" name="submit" >Login</button>
+                </div>
 
                 <div class="clearfix"></div>
-                <br />
-              
-                <div>
-                  <h1><i class="fa fa-paw"></i> {{ (getSiteSetting() !== '')? getSiteSetting()->name : '' }}</h1>
-                  <p>©2016 All Rights Reserved. {{ (getSiteSetting() !== '')? getSiteSetting()->name : '' }}! is a Bootstrap 4 template. Privacy and Terms</p>
+
+                <div class="separator">
+                    <p class="change_link">New to site?
+                    <a href="javascript:void(0);" class="to_register"> Create Account </a>
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <div>
+                    <h1><i class="fa fa-paw"></i> {{ (getSiteSetting() !== '')? getSiteSetting()->name : '' }}</h1>
+                    <p>©2016 All Rights Reserved. {{ (getSiteSetting() !== '')? getSiteSetting()->name : '' }}! is a Bootstrap 4 template. Privacy and Terms</p>
+                    </div>
                 </div>
-              </div>
             </form>
           </section>
         </div>

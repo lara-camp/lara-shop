@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Support\Facades\session;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Login\LoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 
 class LoginController extends Controller
 {
@@ -33,7 +32,7 @@ class LoginController extends Controller
     } else{
         return view('backend.login.index');
     }
-    
+
    }
    public function postLogin(LoginRequest $request) {
     $validation = Auth::guard('Admin')->attempt([
