@@ -9,11 +9,6 @@
         </div>
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
-                <div class="x_title">
-                    <h2>Responsive example<small>Users</small></h2>
-
-                    <div class="clearfix"></div>
-                </div>
                 <div class="x_content">
                     <div class="row">
                         <div class="col-sm-12">
@@ -28,24 +23,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <td>testing Id</td>
-                                        <td>testing Name</td>
-                                        <td>testing date</td>
-                                        <td></td>
-                                        {{-- @foreach ($bedData as $item)
+                                        @foreach ($categoryStore as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->name }}</td>
-                                                <td>
-                                                    {{ getRoomNameByBed($item)}}
-                                                </td>
-                                                <td>{{ $item->updated_at }}</td>
+                                                <td>{{ $item->updated_at->format('d/m/Y  H:i:s') }}</td>
                                                 <td style="text-align:center;">
                                                     <a href="{{ URL::to('admin/bed/edit')}}/{{ $item->id}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                                                     <a href="{{ URL::to('admin/bed/delete')}}/{{ $item->id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                                                 </td>
                                             </tr>
-                                        @endforeach --}}
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

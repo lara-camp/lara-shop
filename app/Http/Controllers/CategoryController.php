@@ -40,6 +40,16 @@ class CategoryController extends Controller
     }
 
     public function categoryList() {
-        return view('backend.category.list');
+        try{
+            $categoryStore     = $this->categoryRepository->store();
+            $logs = "Category Create Screen::";
+            Utility::saveDebugLog($logs);
+            return view('backend/category/list',compact([
+                'categoryStore'
+            ]));
+        }catch(Exception $e){
+            Utility::saveErrorLog($logs);
+            abort(500);
+        }
     }
 }

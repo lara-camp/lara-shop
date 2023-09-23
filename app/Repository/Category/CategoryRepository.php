@@ -24,6 +24,12 @@ class CategoryRepository implements CategoryRepositoryInterface {
             $returnMessage['softGuideStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
             return $returnMessage;
         }
+    }
 
+    public function store() {
+        $category       = Category::select('id','name','updated_at')
+                        ->wherenull('deleted_at')
+                        ->get();
+        return $category;
     }
 }
