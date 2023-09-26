@@ -7,4 +7,5 @@ interface CategoryRepositoryInterface {
     public function store();
     public function edit($id);
     public function update($data);
+    public function delete($id);
 }

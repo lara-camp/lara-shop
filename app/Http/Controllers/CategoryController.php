@@ -57,7 +57,6 @@ class CategoryController extends Controller
     public function categoryEdit($id) {
         try{
             $categoryEdit     = $this->categoryRepository->edit($id);
-            // dd($categoryEdit);
             $logs = "Category Edit Screen::";
             Utility::saveDebugLog($logs);
             return view('backend/category/form',compact([
@@ -75,9 +74,25 @@ class CategoryController extends Controller
             $logs = "Category Create Screen::";
             Utility::saveDebugLog($logs);
             if($result["softGuideStatusCode"] == ReturnMessage::OK) {
-                return redirect()->route('categoryList')->with('successMsg','category create success.');
+                return redirect()->route('categoryList')->with('successMsg','category update success.');
             }else{
-                return redirect()->route('categoryList')->with('errorMsg','category create fail.');
+                return redirect()->route('categoryList')->with('errorMsg','category update fail.');
+            }
+        }catch(Exception $e){
+            Utility::saveErrorLog($logs);
+            abort(500);
+        }
+    }
+
+    public function categoryDelete($id) {
+        try{
+            $result     = $this->categoryRepository->delete($id);
+            $logs = "Category Create Screen::";
+            Utility::saveDebugLog($logs);
+            if($result["softGuideStatusCode"] == ReturnMessage::OK) {
+                return redirect()->route('categoryList')->with('successMsg','category delete success.');
+            }else{
+                return redirect()->route('categoryList')->with('errorMsg','category delete fail.');
             }
         }catch(Exception $e){
             Utility::saveErrorLog($logs);

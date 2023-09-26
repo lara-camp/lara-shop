@@ -54,4 +54,19 @@ class CategoryRepository implements CategoryRepositoryInterface {
             return $returnMessage;
         }
     }
+
+    public function delete($id) {
+        $returnMessage  = array();
+        $returnMessage['softGuideStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+        try {
+            $category          = Category::find($id);
+            $returnObj         = Utility::addDeleted($category);
+            $returnObj->save();
+            $returnMessage['softGuideStatusCode'] = ReturnMessage::OK;
+            return $returnMessage;
+        } catch (\Exception $e) {
+            $returnMessage['softGuideStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+            return $returnMessage;
+        }
+    }
 }

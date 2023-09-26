@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin-backend','middleware' => 'admin'], function() {
         Route::get('create',[CategoryController::class,'categoryForm']);
         Route::get('list',[CategoryController::class,'categoryList'])->name('categoryList');
         Route::get('edit/{id}',[CategoryController::class,'categoryEdit']);
+        Route::get('delete/{id}',[CategoryController::class,'categoryDelete']);
         Route::post('update',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
         Route::post('create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
     });
