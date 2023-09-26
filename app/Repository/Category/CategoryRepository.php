@@ -32,4 +32,26 @@ class CategoryRepository implements CategoryRepositoryInterface {
                         ->get();
         return $category;
     }
+
+    public function edit($id) {
+        $category       = Category::find($id);
+        return $category;
+    }
+
+    public function update($updateData) {
+        $returnMessage  = array();
+        $returnMessage['softGuideStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+        try {
+            $id                = $updateData['id'];
+            $category          = Category::find($id);
+            $category->name    = $updateData['name'];
+            $returnObj         = Utility::addUpdated($category);
+            $returnObj->save();
+            $returnMessage['softGuideStatusCode'] = ReturnMessage::OK;
+            return $returnMessage;
+        } catch (\Exception $e) {
+            $returnMessage['softGuideStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+            return $returnMessage;
+        }
+    }
 }

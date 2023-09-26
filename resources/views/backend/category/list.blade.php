@@ -29,7 +29,7 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->updated_at->format('d/m/Y  H:i:s') }}</td>
                                                 <td style="text-align:center;">
-                                                    <a href="{{ URL::to('admin/bed/edit')}}/{{ $item->id}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                                    <a href="{{ URL::to('admin-backend/category/edit')}}/{{ $item->id}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                                                     <a href="{{ URL::to('admin/bed/delete')}}/{{ $item->id}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                                                 </td>
                                             </tr>

@@ -20,7 +20,7 @@
     <link href="{{ URL::asset('assets/backend/css/data-table/scroller.bootstrap.min.css') }}" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="{{ URL::asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <!-- <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
     <link href="{{ URL::asset('assets/backend/css/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
@@ -42,13 +42,13 @@
 
     <!-- bootstrap-daterangepicker -->
     <link href="{{ URL::asset('assets/backend/css/daterangepicker.css') }}" rel="stylesheet">
-    
+
     <!-- Custom Theme Style -->
     <link href="{{ URL::asset('assets/backend/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/backend/css/backend.style.css?v=20230902') }}" rel="stylesheet">
-    
 
- 
+
+
 
     <!-- jQuery -->
     <script src="{{ URL::asset('assets/backend/jquery/jquery.min.js') }}"></script>
@@ -59,17 +59,17 @@
     <!-- NProgress -->
     <script src="{{ URL::asset('assets/backend/js/nprogress/nprogress.js') }}"></script>
     <!-- Chart.js -->
-    
+
     <!-- bootstrap-progressbar -->
     <script src="{{ URL::asset('assets/backend/js/bootstrap-progressbar.min.js') }}"></script>
     <!-- iCheck -->
     <script src="{{ URL::asset('assets/backend/js/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
 
-         <!-- pnotify -->
+    <!-- pnotify -->
     <script src="{{ URL::asset('assets/backend/css/pnotify/pnotify.js') }}"></script>
     <script src="{{ URL::asset('assets/backend/css/pnotify/pnotify.buttons.js') }}"></script>
-    <script src="{{ URL::asset('') }}assets/backend/css/pnotify/pnotify.nonblock.js"></script>
+    <script src="{{ URL::asset('assets/backend/css/pnotify/pnotify.nonblock.js') }}"></script>
 
         <!-- data table  -->
      <script src="{{ URL::asset('assets/backend/js/data-table/jquery.dataTables.min.js') }}"></script>
@@ -84,6 +84,5 @@
       <div class="main_container">
 @include('backend.layouts.partial.topnav')
 @include('backend.layouts.partial.sidebar')
-        
-       
-       
+
+

@@ -32,4 +32,51 @@
 <!-- Custom Theme Scripts -->
 <script src="{{ URL::asset('assets/backend/js/custom/custom.min.js') }}"></script>
 
+<!-- PNotify -->
+<script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.js')}}"></script>
+<script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.buttons.js')}}"></script>
+<script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.nonblock.js')}}"></script>
+<script src="{{ URL::asset('assets/backend/js/pages/upload_img.js')}}"></script>
+
+@if ($errors->has('name'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("name") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ( session('successMsg') )
+    <script>
+        new PNotify({
+                    title: 'success!',
+                    text: '{{ session('successMsg') }}',
+                    type: 'success',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ( session('errorMsg') )
+    <script>
+        new PNotify({
+                    title: 'error!',
+                    text: '{{ session('errorMsg') }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ( session('deleteMsg') )
+    <script>
+        new PNotify({
+                    title: 'error!',
+                    text: '{{ session('deleteMsg') }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
 </body>
+</html>
