@@ -1,5 +1,4 @@
 @extends('backend.layouts.master')
-<<<<<<< HEAD
 @section('title','Admin::Product Create Page')
 @section('content')
 <!-- page content -->
@@ -89,59 +88,12 @@
                                 </div>
                             </div>
                         </form>
-=======
-@section('title','Lara Shop :: Product Page')
-@section('content')
-    <!-- /page content -->
-    <div class="right_col" role="main">
-        <div class="">
-            <div class="title_left">
-                <h3>Category Page</h3>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="x_panel">
 
-                        <div class="x_content">
-                        {{-- @if (isset($bedData))
-                            <form action="" method="post" id="create-form" novalidate>
-                        @else --}}
-                            <form action="{{ route('createCategory')}}" method="post" id="create-form" novalidate>
-                        {{-- @endif --}}
-                                @csrf
-                                <span class="section">Create Category</span>
-                                <div class="field item ">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align ">Name<span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6">
-                                            <input class="form-control" name="name" id="name" placeholder="Please fill category name" value=""  />
-                                        </div>
-                                    <label class="col-form-label col-md-3 col-sm-3 label-error error-hide" ><span class="name-text"></span></label>
-                                </div>
-                                <div class="ln_solid">
-                                    <div class="form-group">
-                                        <div class="col-md-6 offset-md-3">
-                                            <button type='submit' class="btn btn-primary " >Submit</button>
-                                            <button type='reset' class="btn btn-success" id="reset">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
->>>>>>> 6dc37de7994f9bf13e885f0bdc0e8c1217bda5e3
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 </div>
-<!-- /page content -->
 <script src="{{URL::asset('/assets/backend/js/pages/product_img_upload.js?v=20230926')}}"></script>
 @endsection
-
-=======
-    <!-- /page content -->
-@endsection
->>>>>>> 6dc37de7994f9bf13e885f0bdc0e8c1217bda5e3

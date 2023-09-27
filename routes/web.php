@@ -5,11 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\IndexController;
-<<<<<<< HEAD
 use App\Http\Controllers\Product\ProductController;
-=======
-use App\Http\Controllers\ProductController;
->>>>>>> 6dc37de7994f9bf13e885f0bdc0e8c1217bda5e3
 
 Route::get('/',[LoginController::class,'loginForm'])->name('login');
 Route::get('admin-backend/logout',[LoginController::class,'getLogout'])->name('logout');
@@ -17,16 +13,6 @@ Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('p
 
 Route::group(['prefix' => 'admin-backend','middleware' => 'admin'], function() {
     Route::get('index',[IndexController::class,'index'])->name('backendIndex');
-<<<<<<< HEAD
-    Route::group(['prefix' => 'product'], function () {
-        Route::get('/create',[ProductController::class,'form'])->name('productForm');
-        Route::get('/lists',[ProductController::class,'form'])->name('productLists');
-
-    });
-});
-Auth::routes();
-
-=======
 
     Route::prefix('category')->group(function() {
         Route::get('create',[CategoryController::class,'categoryForm']);
@@ -37,10 +23,9 @@ Auth::routes();
         Route::post('create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
     });
 
-    Route::prefix('product')->group(function() {
-        Route::get('create',[ProductController::class,'productForm']);
-        Route::post('create',[ProductController::class,'productCreate'])->name('productCreate');
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/create',[ProductController::class,'form'])->name('productForm');
+        Route::get('/lists',[ProductController::class,'form'])->name('productLists');
+
     });
 });
-
->>>>>>> 6dc37de7994f9bf13e885f0bdc0e8c1217bda5e3
