@@ -28,7 +28,7 @@
         <h3>General</h3>
         <ul class="nav side-menu">
           <li><a href="{{ route('backendIndex') }}"><i class="fa fa-home"></i>Home</a></li>
-              
+
           <li><a><i class="fa fa-laptop"></i>Category<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="#">Create</a></li>
@@ -38,22 +38,22 @@
 
           <li><a><i class="fa fa-edit"></i>Product<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
-                <li><a href="#">Create</a></li>
-                <li><a href="#">Listing</a></li>
+                <li><a href="{{route('productForm')}}">Create</a></li>
+                <li><a href="{{route('productLists')}}">Listing</a></li>
               </ul>
           </li>
-            
-            
+
+
           <li><a><i class="fa fa-edit"></i>Order<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="#">Listing</a></li>
               </ul>
           </li>
-          
+
           <li>
             <a href=""><i class="fa fa-home"></i>Site Setting</a>
           </li>
-            
+
         </ul>
       </div>
     </div>

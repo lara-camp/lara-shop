@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\Product\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,11 @@ Route::get('admin-backend/logout',[LoginController::class,'getLogout'])->name('l
 Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('postLogin');
 Route::group(['prefix' => 'admin-backend','middleware' => 'admin'], function() {
     Route::get('index',[IndexController::class,'index'])->name('backendIndex');
-});
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/create',[ProductController::class,'form'])->name('productForm');
+        Route::get('/lists',[ProductController::class,'form'])->name('productLists');
 
+    });
+});
 Auth::routes();
 
