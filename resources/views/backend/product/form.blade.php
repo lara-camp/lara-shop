@@ -1,6 +1,7 @@
 @extends('backend.layouts.master')
 @section('title', (isset($product) ? 'Lara Shop :: Product  Edit Page' : 'Lara Shop :: Product  Create Page') )
 @section('content')
+@section('title','Admin::Product Create Page')
 @section('content')
 <!-- page content -->
 <div class="right_col" role="main">
@@ -112,7 +113,5 @@
         </div>
     </div>
 </div>
-<!-- /page content -->
 <script src="{{URL::asset('/assets/backend/js/pages/product_img_upload.js?v=20230926')}}"></script>
-
 @endsection

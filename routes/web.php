@@ -40,6 +40,3 @@ Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function()
     });
 });
 Auth::routes();
-
-
-
