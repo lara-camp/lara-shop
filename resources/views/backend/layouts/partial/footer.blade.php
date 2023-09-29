@@ -30,12 +30,13 @@
 <script src="{{ URL::asset('assets/backend/js/data-table/vfs_fonts.js') }}"></script>
 <script src="{{ URL::asset('assets/backend/js/datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
-<script src="{{ URL::asset('assets/backend/js/custom/custom.min.js') }}"></script>
+<script src="{{ URL::asset('assets/backend/js/custom/custom.js') }}"></script>
 
 <!-- PNotify -->
 <script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.js')}}"></script>
 <script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.buttons.js')}}"></script>
 <script src="{{ URL::asset('assets/backend/js/pnotify/pnotify.nonblock.js')}}"></script>
+
 <script src="{{ URL::asset('assets/backend/js/pages/upload_img.js')}}"></script>
 
 @if ($errors->has('name'))
@@ -43,6 +44,86 @@
         new PNotify({
                     title: 'Error!',
                     text: '{{ $errors->first("name") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('product_id'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("product_id") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('price'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("price") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('stock'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("stock") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('price'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("price") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('made'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("made") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('description'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("description") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('description'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("description") }}',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                    })
+    </script>
+@endif
+@if ($errors->has('category_id'))
+    <script>
+        new PNotify({
+                    title: 'Error!',
+                    text: '{{ $errors->first("category_id") }}',
                     type: 'error',
                     styling: 'bootstrap3'
                     })

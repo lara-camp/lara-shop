@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Product;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductUpdateRequest extends FormRequest
@@ -11,7 +12,7 @@ class ProductUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +20,53 @@ class ProductUpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'name'            => ["required",
+                                    "max:30",
+                                    "min:5",
+                                    Rule::unique('products')->where(function($query){
+                                        return $query
+                                            ->where(
+                                                "name",
+                                                $this->name,
+                                            )
+                                            ->wherenull('deleted_at');
+                                    })->ignore($this->id)
+            ],
+            'price'           => ["required"],
+
+            'stock'           => ["required",
+                                    "integer",
+            ],
+            'made'            => ["required"],
+
+            'description'     => ["required"],
+
+            'category_id'     => ["required",
+                                    "integer",
+            ],
+
+            'file'            => [
+                                    "file",
+                                    "mimes:jpg,png,jpeg,gif,img"
+            ],
+        ];
+    }
+    public function messages(){
+        return[
+            'name.required'             => 'Product name cannot be empty',
+            'name.max'                  => 'Product name lenght cannot be greater than 30',
+            'name.min'                  => 'Product name lenght cannot be less than five',
+            'name.unique'               => 'Product name is already exits',
+            'price.required'            => 'Product price cannot be empty',
+            'stock.required'            => 'Product stock cannot be empty',
+            'stock.integer'             => 'Product stock must be integer',
+            'description.required'      => 'Product description cannot be empty',
+            'category_id.required'      => 'Product category cannot be empty',
+            'category_id.numeric'       => 'Product category must be numeric',
+            'file.mimes'                => 'Thumbnail extension is wrong!!',
         ];
     }
 }

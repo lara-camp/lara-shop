@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
-    protected $table = 'galleries';
+    protected $table = 'gallries';
     protected $fillable = [
                                 'id',
                                 'product_id',

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Model
 {
     use HasFactory;
@@ -25,4 +25,7 @@ class Product extends Model
                                 'updated_at',
                                 'deleted_at',
                             ];
+    public function getCategory():BelongsTo{
+        return $this->belongsTo(Category::class,'category_id','id');
+    }
 }

@@ -27,7 +27,7 @@ class CategoryRepository implements CategoryRepositoryInterface {
     }
 
     public function store() {
-        $category       = Category::select('id','name','updated_at')
+        $category       = Category::select('id','name',)
                         ->wherenull('deleted_at')
                         ->get();
         return $category;

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('gallries', function (Blueprint $table) {
             $table->id(); // This creates a single auto-increment primary key 'id' column.
+            $table->string('image',200);
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by');

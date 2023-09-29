@@ -46,13 +46,7 @@
     <!-- Custom Theme Style -->
     <link href="{{ URL::asset('assets/backend/css/custom.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/backend/css/backend.style.css?v=20230902') }}" rel="stylesheet">
-<<<<<<< HEAD
     <link href="{{ URL::asset('assets/backend/css/product_image_upload.css?v=20230926') }}" rel="stylesheet">
-=======
-
-
-
->>>>>>> 6dc37de7994f9bf13e885f0bdc0e8c1217bda5e3
 
     <!-- jQuery -->
     <script src="{{ URL::asset('assets/backend/jquery/jquery.min.js') }}"></script>

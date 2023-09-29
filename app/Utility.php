@@ -2,11 +2,11 @@
 
 namespace App;
 
+use App\Constant;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\Facades\Image;
-
 class Utility {
     public static function addCreated($paraObj) {
 
@@ -64,8 +64,6 @@ class Utility {
         foreach ($log as $entry) {
             $query = $entry['query'];
             $bindings = $entry['bindings'];
-
-            // Replace the placeholders in the SQL query with actual values.
             foreach ($bindings as $binding) {
                 $query = preg_replace('/\?/', "'$binding'", $query, 1);
             }
@@ -74,16 +72,25 @@ class Utility {
         }
             Log::error(" $logMessage" . PHP_EOL . $formattedLog);
     }
+    public static function cropResize($file,$width,$height,$destination,$filename){
 
-    // public static function cropAndResizeImage($file,$width,$height,$destination,$uniqueName){
-    //     $modifiedImage    = Image::make($file)
-    //                 ->crop($width,$height)
-    //                 ->encode();
-    //     $waterMarkImage     = Image::make(Constant::WATERMARK_PATH);
-    //     $waterMarkX         = $modifiedImage->width() - $waterMarkImage->width() - 10;
-    //     $waterMarkY         = $modifiedImage->height() - $waterMarkImage->height() - 10;
-    //     $modifiedImage->insert($waterMarkImage, 'top-right' ,$waterMarkX,$waterMarkY);
-    //     $modifiedImage->save($destination . '/' . $uniqueName);
-    // }
-
+        if(!file_exists($destination)){
+            mkdir($destination, 0777, true);
+        }
+        $watermarkPath  = public_path(Constant::Water_Mark_Path);
+        $image          = Image::make($file);
+        $modifiedImage  = $image->crop($width, $height);
+        $modifiedImage->encode();
+        $watermark  = Image::make($watermarkPath);
+        $watermarkX = $modifiedImage->width() - $watermark->width() - 10;
+        $watermarkY = $modifiedImage->height() - $watermark->height() - 10;
+        $modifiedImage->insert($watermark, 'bottom-right', $watermarkX, $watermarkY);
+        $modifiedImage->save($destination .$filename);
+    }
+    public static function getImageExtension($file){
+        $image       = $file;
+        $extension   = $image->getClientOriginalExtension();
+        $uniqueName  = date('Ymd_His')."_".uniqid().".".$extension;
+        return $uniqueName;
+    }
 };
