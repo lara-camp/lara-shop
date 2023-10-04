@@ -8,7 +8,11 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
+                @if (isset($product))
+                <h3>Product Update Form</h3>
+                @else
                 <h3>Product Create Form</h3>
+                @endif
             </div>
         </div>
         <div class="clearfix"></div>
@@ -84,7 +88,13 @@
                             <div class="field item form-group">
                                 <label for="product-made" class="col-form-label col-md-3 col-sm-3  label-align">Product Made in<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input type="text" id="product-made" class="form-control" name="made" value="{{old('made',isset($product->made)? $product->made : '')}}"/>
+                                    <select class="form-control" id="product-made" name="made">
+                                        <option value="">Choose Made</option>
+                                          @foreach ($mades as $made)
+                                            <option value="{{$made->id}}"{{ old('made') == $made->id || (isset($product) && $product->made == $made->id) ? 'selected' : '' }}>{{$made->name}}</option>
+                                          @endforeach
+
+                                    </select>
                                 </div>
                                 <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="bed-error"><span class="error"></span></label>
                             </div>

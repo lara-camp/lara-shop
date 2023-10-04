@@ -7,29 +7,36 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
-use App\Repository\Product\ProductRepositoryInterface;
 use App\Repository\Category\CategoryRepositoryInterface;
+use App\Repository\MadeIn\MadeInRepositoryInterface;
+use App\Repository\Product\ProductRepositoryInterface;
+
 
 class ProductController extends Controller
 {
     private $categoryRepo;
+    private $madeRepo;
     private $productRepo;
     public function  __construct(
         CategoryRepositoryInterface $categoryRepo,
+        MadeInRepositoryInterface $madeRepo,
         ProductRepositoryInterface $productRepo
     ){
         DB::connection()->enableQueryLog();
         $this->categoryRepo = $categoryRepo;
+        $this->madeRepo     = $madeRepo;
         $this->productRepo  = $productRepo;
 
     }
     public function form(){
         try{
             $categories = $this->categoryRepo->store();
+            $mades      = $this->madeRepo->store();
             $logs = "Product Create Form Screen::";
             Utility::saveDebugLog($logs);
             return view('backend.product.form',compact([
-                'categories'
+                'categories',
+                'mades'
             ]));
         }catch(\Exception $e){
             $logs = "Product Create Form Error Screen::";
@@ -72,11 +79,13 @@ class ProductController extends Controller
         try{
             $product    = $this->productRepo->edit((int) $id);
             $categories   = $this->categoryRepo->store();
+            $mades      = $this->madeRepo->store();
             $logs = "Product Edit Screen::";
             Utility::saveDebugLog($logs);
             return view('backend.product.form',compact([
                 'product',
                 'categories',
+                'mades'
              ]));
         }catch(\Exception $e){
             $logs = "Product Edit Error Screen::";

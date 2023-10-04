@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->double('price', 8, 2); // The second argument specifies total digits, and the third specifies decimal places.
             $table->integer('stock');
-            $table->string('made', 150);
+            $table->integer('made');
             $table->longText('description');
             $table->string('thumbnail', 150);
             $table->string('logo_path', 150)->nullable();
