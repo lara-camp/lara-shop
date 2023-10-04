@@ -11,25 +11,25 @@ body {
   background: var(--main-color);
 }
 h1 {
-  margin: 100px auto 0 auto;
+  margin: 0px auto 0 auto;
   color: var(--stroke-color);
   font-family: 'Encode Sans Semi Condensed', Verdana, sans-serif;
-  font-size: 10rem; line-height: 10rem;
+  font-size: 7rem; line-height: 10rem;
   font-weight: 200;
   text-align: center;
 }
-h2 {
-  margin: 20px auto 30px auto;
+p {
+  margin: 0px auto 30px auto;
   font-family: 'Encode Sans Semi Condensed', Verdana, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 200;
+  font-size: 3rem;
+  font-weight: 30;
   text-align: center;
 }
-h1, h2 {
+h1, p {
   -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
   transition: opacity 0.5s linear, margin-top 0.5s linear;
 }
-.loading h1, .loading h2 {
+.loading h1, .loading p {
   margin-top: 0px;
   opacity: 0;
 }
@@ -139,10 +139,34 @@ h1, h2 {
 .loading .gear.two {
   -webkit-animation: anticlockwise 3s linear infinite;
 }
+.button-container {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Encode Sans Semi Condensed', Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background-color: darkgreen;
+}
 </style>
 <body class="loading">
-  <h1>404</h1>
-  <h2>Intrenal Server Error <b>:)</b></h2>
+    <div class="button-container">
+        <a href="{{ route('backendIndex') }}" class="button">HOME PAGE</a>
+    </div>
+    <h1> PAGE NOT FOUND!!</h1>
+    <p>404</p>
+
   <div class="gears">
     <div class="gear one">
       <div class="bar"></div>

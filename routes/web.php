@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\MadeIn\MadeInController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\GalleryController;
 
@@ -37,6 +38,14 @@ Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function()
         Route::get('delete/{id}',[CategoryController::class,'categoryDelete']);
         Route::post('update',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
         Route::post('create',[CategoryController::class,'categoryCreate'])->name('categoryCreate');
+    });
+    Route::prefix('made')->group(function() {
+        Route::get('create',[MadeInController::class,'madeInForm']);
+        Route::get('list',[MadeInController::class,'madeList'])->name('madeList');
+        Route::get('edit/{id}',[MadeInController::class,'madeEdit']);
+        Route::get('delete/{id}',[MadeInController::class,'madeDelete']);
+        Route::post('update',[MadeInController::class,'madeUpdate'])->name('madeUpdate');
+        Route::post('create',[MadeInController::class,'madeCreate'])->name('madeCreate');
     });
 });
 Auth::routes();

@@ -14,7 +14,7 @@ h1 {
   margin: 100px auto 0 auto;
   color: var(--stroke-color);
   font-family: 'Encode Sans Semi Condensed', Verdana, sans-serif;
-  font-size: 10rem; line-height: 10rem;
+  font-size: 7rem; line-height: 10rem;
   font-weight: 200;
   text-align: center;
 }
@@ -141,8 +141,8 @@ h1, h2 {
 }
 </style>
 <body class="loading">
-  <h1>500</h1>
-  <h2>Unexpected Error <b>:(</b></h2>
+<h1>Unexpected Error </h1>
+  <h2>500</h2>
   <div class="gears">
     <div class="gear one">
       <div class="bar"></div>
