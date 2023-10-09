@@ -4,30 +4,39 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Frontend\Home\FrontendIndexController;
 use App\Http\Controllers\Home\IndexController;
+
 use App\Http\Controllers\MadeIn\MadeInController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\GalleryController;
 
-Route::get('/',[LoginController::class,'loginForm'])->name('login');
-Route::get('admin-backend/logout',[LoginController::class,'getLogout'])->name('logout');
+Route::get('admin-backend/login',[LoginController::class,'loginForm'])->name('login');
 Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('postLogin');
 
+Route::get('/',[FrontendIndexController::class,'frontendIndex']);
+Route::get('category',[FrontendIndexController::class,'category']);
+Route::get('tracking',[FrontendIndexController::class,'tracking']);
+Route::get('blog',[FrontendIndexController::class,'blog']);
+Route::get('contact',[FrontendIndexController::class,'contact']);
+
 Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function() {
+    Route::get('logout',[LoginController::class,'getLogout'])->name('logout');
     Route::get('index',[IndexController::class,'index'])->name('backendIndex');
     Route::group(['prefix' => 'product'], function () {
-        Route::get('/create',[ProductController::class,'form'])->name('productForm');
-        Route::get('/lists',[ProductController::class,'index'])->name('productLists');
-        Route::get('/edit/{id}',[ProductController::class,'edit']);
-        Route::get('/delete/{id}',[ProductController::class,'delete']);
-        Route::post('/create',[ProductController::class,'store'])->name('productCreate');
-        Route::post('/update',[ProductController::class,'update'])->name('productUpdate');
+        Route::get('create',[ProductController::class,'form'])->name('productForm');
+        Route::get('lists',[ProductController::class,'index'])->name('productLists');
+        Route::get('edit/{id}',[ProductController::class,'edit']);
+        Route::get('delete/{id}',[ProductController::class,'delete']);
+        Route::post('create',[ProductController::class,'store'])->name('productCreate');
+        Route::post('update',[ProductController::class,'update'])->name('productUpdate');
+
         Route::group(['prefix' => 'gallery'], function () {
-            Route::get('/{id}',[GalleryController::class,'galleryCreate'])->name('galleryCreate');
-            Route::get('/edit/{id}',[GalleryController::class,'galleryEdit']);
-            Route::get('/delete/{id}',[GalleryController::class,'galleryDelete']);
+            Route::get('{id}',[GalleryController::class,'galleryCreate'])->name('galleryCreate');
+            Route::get('edit/{id}',[GalleryController::class,'galleryEdit']);
+            Route::get('delete/{id}',[GalleryController::class,'galleryDelete']);
             Route::post('store',[GalleryController::class,'galleryStore'])->name('galleryStore');
-            Route::post('/update',[GalleryController::class,'galleryUpdate'])->name('galleryUpdate');
+            Route::post('update',[GalleryController::class,'galleryUpdate'])->name('galleryUpdate');
         });
     });
 

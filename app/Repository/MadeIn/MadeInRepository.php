@@ -28,7 +28,7 @@ class MadeInRepository implements MadeInRepositoryInterface {
     }
 
     public function store() {
-        $made       = Made::select('id','name',)
+        $made       = Made::select('id','name')
                         ->wherenull('deleted_at')
                         ->get();
         return $made;
