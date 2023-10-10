@@ -38,7 +38,7 @@
 	<header class="header_area sticky-header">
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light main_box">
-				<div class="container">
+				<div class="container"> 
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="{{ URL::to('/') }}"><img src="{{ URL::asset('images/logo.png') }}" style="border-radius: 20%;" alt="">  LARA Shop</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

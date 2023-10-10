@@ -37,8 +37,6 @@
                       </thead>
                       <tbody>
                             @foreach ($products as $product )
-
-
                                     <tr>
                                         <td>{{$product->id}}</td>
                                         <td><img src="{{URL::asset('assets/upload/'.$product->id.'/thumb/'.$product->thumbnail)}}" alt="" style="width: 85px;height:50px"></td>

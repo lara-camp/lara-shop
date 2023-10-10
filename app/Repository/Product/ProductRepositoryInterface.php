@@ -8,4 +8,5 @@ interface ProductRepositoryInterface {
     public function edit(int $id);
     public function update(array $data);
     public function delete(int $id);
+    public function getProductRandom();
 }

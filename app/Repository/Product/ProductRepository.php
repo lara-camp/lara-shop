@@ -110,4 +110,23 @@ class ProductRepository implements ProductRepositoryInterface {
             return $returnedObj;
         }
     }
+    public function getProductRandom(){
+        $productDatas = Product::select(
+                        'id',
+                        'name',
+                        'price',
+                        'stock',
+                        'made',
+                        'description',
+                        'thumbnail',
+                        'category_id'
+                        )
+                        ->whereNull('deleted_at')
+                        ->inRandomOrder() // Randomize the order of results
+                        ->limit(12)      // Limit the results to 12
+                        ->get();
+    
+        return $productDatas;
+    }
+    
 }
