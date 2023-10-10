@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title','LARA Shop:: About')
 @section('content')
-
+@include('frontend.layouts.partial.banner_area')
 	<!--================Contact Area =================-->
 	<section class="contact_area section_gap_bottom">
 		<div class="container">

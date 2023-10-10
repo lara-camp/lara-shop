@@ -2,7 +2,7 @@
 @section('title','LARA Shop::Category')
 @section('content')
 <body id="category">
-
+    @include('frontend.layouts.partial.banner_area')
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
@@ -255,7 +255,7 @@
 								</div>
 							</div>
 						</div>
-			
+
 					</div>
 				</section>
 				<!-- End Best Seller -->
@@ -334,7 +334,7 @@
 								</div>
 							</div>
 						</div>
-				
+
 					</div>
 				</div>
 				<div class="col-lg-3">

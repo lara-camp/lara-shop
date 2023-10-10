@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Frontend\Home\FrontendIndexController;
+use App\Http\Controllers\Frontend\Product\ProductDetailController;
 use App\Http\Controllers\Home\IndexController;
 
 use App\Http\Controllers\MadeIn\MadeInController;
@@ -19,6 +20,8 @@ Route::get('category',[FrontendIndexController::class,'category']);
 Route::get('tracking',[FrontendIndexController::class,'tracking']);
 Route::get('blog',[FrontendIndexController::class,'blog']);
 Route::get('contact',[FrontendIndexController::class,'contact']);
+
+Route::get('product/detail/{id}',[ProductDetailController::class,'index']);
 
 Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function() {
     Route::get('logout',[LoginController::class,'getLogout'])->name('logout');

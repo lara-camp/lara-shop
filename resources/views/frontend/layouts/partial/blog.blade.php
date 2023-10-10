@@ -2,6 +2,7 @@
 @section('title','LARA Shop::Blog')
 @section('content')
 <body>
+    @include('frontend.layouts.partial.banner_area')
     <!--================Blog Area =================-->
     <section class="blog_area single-post-area section_gap">
         <div class="container">
@@ -198,7 +199,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
                     <div class="comment-form">
                         <h4>Leave a Reply</h4>
@@ -386,4 +387,4 @@
     </section>
     <!--================Blog Area =================-->
 
-@endsection 
+@endsection
