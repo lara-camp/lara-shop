@@ -4,17 +4,20 @@ namespace App\Providers;
 
 use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
-use App\Repository\Category\CategoryRepository;
 use App\Repository\MadeIn\MadeInRepository;
 use App\Repository\Product\GalleryRepository;
 use App\Repository\Product\ProductRepository;
-use App\Repository\Frontend\Product\ProductDetailRepositoryInterface;
+use App\Repository\Setting\SettingRepository;
+use App\Repository\Category\CategoryRepository;
+
 
 use App\Repository\MadeIn\MadeInRepositoryInterface;
 use App\Repository\Product\GalleryRepositoryInterface;
 use App\Repository\Product\ProductRepositoryInterface;
+use App\Repository\Setting\SettingRepositoryInterface;
 use App\Repository\Category\CategoryRepositoryInterface;
 use App\Repository\Frontend\Product\ProductDetailRepository;
+use App\Repository\Frontend\Product\ProductDetailRepositoryInterface;
 
 
 
@@ -29,6 +32,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(GalleryRepositoryInterface::class,GalleryRepository::class);
         $this->app->bind(MadeInRepositoryInterface::class,MadeInRepository::class);
         $this->app->bind(ProductRepositoryInterface::class,ProductRepository::class);
+        $this->app->bind(SettingRepositoryInterface::class,SettingRepository::class);
         $this->app->bind(ProductDetailRepositoryInterface::class,ProductDetailRepository::class);
     }
 

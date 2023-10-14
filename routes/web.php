@@ -4,13 +4,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Home\IndexController;
+use App\Http\Controllers\MadeIn\MadeInController;
+use App\Http\Controllers\Product\GalleryController;
+
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Frontend\Home\FrontendIndexController;
 use App\Http\Controllers\Frontend\Product\ProductDetailController;
-use App\Http\Controllers\Home\IndexController;
-
-use App\Http\Controllers\MadeIn\MadeInController;
-use App\Http\Controllers\Product\ProductController;
-use App\Http\Controllers\Product\GalleryController;
 
 Route::get('admin-backend/login',[LoginController::class,'loginForm'])->name('login');
 Route::post('admin-backend/login',[LoginController::class,'postLogin'])->name('postLogin');
@@ -59,5 +60,7 @@ Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function()
         Route::post('update',[MadeInController::class,'madeUpdate'])->name('madeUpdate');
         Route::post('create',[MadeInController::class,'madeCreate'])->name('madeCreate');
     });
+    Route::get('setting',[SiteSettingController::class,'index'])->name('siteSetting');
+    Route::post('setting', [SiteSettingController::class, 'update'])->name('settingUpdate');
 });
 Auth::routes();
