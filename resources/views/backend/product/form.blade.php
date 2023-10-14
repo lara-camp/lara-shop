@@ -77,6 +77,34 @@
                                 <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="occupation-error"><span class="error"></span></label>
                             </div>
                             <div class="field item form-group">
+                                <label for="product-width" class="col-form-label col-md-3 col-sm-3 label-align">Product Width<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="number" id="product-width" class="form-control" name="width" value="{{old('width',isset($product->width)? $product->width : '')}}"/>
+                                </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="occupation-error"><span class="error"></span></label>
+                            </div>
+                            <div class="field item form-group">
+                                <label for="product-height" class="col-form-label col-md-3 col-sm-3 label-align">Product Height<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="number" id="product-height" class="form-control" name="height" value="{{old('height',isset($product->height)? $product->height : '')}}"/>
+                                </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="occupation-error"><span class="error"></span></label>
+                            </div>
+                            <div class="field item form-group">
+                                <label for="product-depth" class="col-form-label col-md-3 col-sm-3 label-align">Product Depth<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="number" id="product-depth" class="form-control" name="depth" value="{{old('depth',isset($product->depth)? $product->depth : '')}}"/>
+                                </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="occupation-error"><span class="error"></span></label>
+                            </div>
+                            <div class="field item form-group">
+                                <label for="product-weight" class="col-form-label col-md-3 col-sm-3 label-align">Product Weight<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="number" id="product-weight" class="form-control" name="weight" value="{{old('weight',isset($product->weight)? $product->weight : '')}}"/>
+                                </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="occupation-error"><span class="error"></span></label>
+                            </div>
+                            <div class="field item form-group">
                                 <label for="product-stock" class="col-form-label col-md-3 col-sm-3 label-align">Product stock<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input type="number" id="product-stock" class="form-control" name="stock" value="{{old('stock',isset($product->stock)? $product->stock : '')}}"/>

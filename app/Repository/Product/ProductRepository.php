@@ -18,6 +18,10 @@ class ProductRepository implements ProductRepositoryInterface {
             $paraObj->price             = $data['price'];
             $paraObj->stock             = $data['stock'];
             $paraObj->made              = $data['made'];
+            $paraObj->width             = $data['width'];
+            $paraObj->height            = $data['height'];
+            $paraObj->depth             = $data['depth'];
+            $paraObj->weight            = $data['weight'];
             $paraObj->description       = $data['description'];
             $paraObj->category_id       = $data['category_id'];
             $uniqueName                 = Utility::getImageExtension($data['file']);
@@ -48,6 +52,10 @@ class ProductRepository implements ProductRepositoryInterface {
             'price',
             'stock',
             'made',
+            'width',
+            'height',
+            'depth',
+            'weight',
             'description',
             'thumbnail',
             'category_id'
@@ -72,6 +80,10 @@ class ProductRepository implements ProductRepositoryInterface {
             $paraObj->price             = $data['price'];
             $paraObj->stock             = $data['stock'];
             $paraObj->made              = $data['made'];
+            $paraObj->width             = $data['width'];
+            $paraObj->height            = $data['height'];
+            $paraObj->depth             = $data['depth'];
+            $paraObj->weight            = $data['weight'];
             $paraObj->description       = $data['description'];
             $paraObj->category_id       = $data['category_id'];
             if(array_key_exists("file", $data)){
@@ -117,6 +129,10 @@ class ProductRepository implements ProductRepositoryInterface {
                         'price',
                         'stock',
                         'made',
+                        'width',
+                        'height',
+                        'depth',
+                        'weight',
                         'description',
                         'thumbnail',
                         'category_id'

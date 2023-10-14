@@ -18,9 +18,12 @@ return new class extends Migration
             $table->double('price', 8, 2); // The second argument specifies total digits, and the third specifies decimal places.
             $table->integer('stock');
             $table->integer('made');
+            $table->string('width',50);
+            $table->string('height',50);
+            $table->string('depth',50);
+            $table->string('weight',50);
             $table->longText('description');
-            $table->string('thumbnail', 150);
-            $table->string('logo_path', 150)->nullable();
+            $table->string('thumbnail', 150)->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by');
             $table->unsignedBigInteger('deleted_by')->nullable();
