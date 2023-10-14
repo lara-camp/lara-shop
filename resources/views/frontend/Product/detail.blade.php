@@ -45,7 +45,7 @@
                             class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                         </div>
                         <div class="card_area d-flex align-items-center">
-                            <a class="primary-btn" href="#">Add to Cart</a>
+                            <a class="primary-btn" id="addCart">Add to Cart</a>
                             <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                             <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                         </div>
@@ -517,4 +517,26 @@
         </div>
     </section>
     <!-- End related-product Area -->
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#addCart').click(function(){
+                $.ajax({
+                    url: '/check/user',
+                    type: 'GET',
+                    success: function(response) {
+                        if(response == 'true') {
+                            alert('user have login')
+                        } else {
+                            window.location.href = '/user/register'
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            })
+        })
+    </script>
 @endsection
