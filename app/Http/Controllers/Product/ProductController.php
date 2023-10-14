@@ -29,7 +29,7 @@ class ProductController extends Controller
 
     }
     public function form(){
-        // try{
+        try{
             $categories = $this->categoryRepo->store();
             $mades      = $this->madeRepo->store();
             $logs = "Product Create Form Screen::";
@@ -38,11 +38,11 @@ class ProductController extends Controller
                 'categories',
                 'mades'
             ]));
-        // }catch(\Exception $e){
-        //     $logs = "Product Create Form Error Screen::";
-        //     Utility::saveErrorLog($logs);
-        //     abort(500);
-        // }
+        }catch(\Exception $e){
+            $logs = "Product Create Form Error Screen::";
+            Utility::saveErrorLog($logs);
+            abort(500);
+        }
     }
     public function index(){
         try{
@@ -125,5 +125,5 @@ class ProductController extends Controller
             abort(500);
         }
     }
-   
+
 }

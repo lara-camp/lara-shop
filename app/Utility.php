@@ -79,7 +79,7 @@ class Utility {
         }
         $watermarkPath  = public_path(Constant::Water_Mark_Path);
         $image          = Image::make($file);
-        $modifiedImage  = $image->crop($width, $height);
+        $modifiedImage  = $image->resize($width, $height);
         $modifiedImage->encode();
         $watermark  = Image::make($watermarkPath);
         $watermarkX = $modifiedImage->width() - $watermark->width() - 10;

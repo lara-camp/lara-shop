@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('price_unit',10);
             $table->string('size_unit',10);
             $table->string('logo_path',150)->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

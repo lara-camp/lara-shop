@@ -30,7 +30,7 @@
                             <li>
                                 <a href="#">
                                     <span>Availability</span> :
-                                    {{ $product->stock > 0 ? "In Stock" : "Not Available" }}
+                                    {{ $product->stock > 0 ? "In Stock" : "Not Available" }} ({{$product->stock}})
                                 </a>
                             </li>
 

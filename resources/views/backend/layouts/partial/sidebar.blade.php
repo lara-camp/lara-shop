@@ -58,7 +58,7 @@
           </li>
 
           <li>
-            <a href=""><i class="fa fa-home"></i>Site Setting</a>
+            <a href="{{route('siteSetting')}}"><i class="fa fa-home"></i>Site Setting</a>
           </li>
 
         </ul>
