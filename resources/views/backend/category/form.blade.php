@@ -1,3 +1,4 @@
+
 @extends('backend.layouts.master')
 @section('title', (isset($categoryEdit) ? 'Lara Shop :: Category Edit Page' : 'Lara Shop :: Category Create Page') )
 @section('content')
@@ -14,9 +15,9 @@
 
                         <div class="x_content">
                         @if (isset($categoryEdit))
-                            <form action="{{ route('categoryUpdate')}}" method="post" id="create-form" novalidate>
+                            <form action="{{ route('categoryUpdate')}}" method="post" id="create-form" class="needs-validation" novalidate>
                         @else
-                            <form action="{{ route('categoryCreate')}}" method="post" id="create-form" novalidate>
+                            <form action="{{ route('categoryCreate')}}" method="post" id="create-form" class="needs-validation" novalidate>
                         @endif
                                 @csrf
                                 @if (isset($categoryEdit))
@@ -28,7 +29,7 @@
                                 <div class="field item ">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align ">Name<span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6">
-                                            <input class="form-control" name="name" id="name" placeholder="Please fill category name" value="{{ old('name',isset($categoryEdit) ? $categoryEdit : '')}}"  />
+                                            <input class="form-control " name="name" id="name" placeholder="Please fill category name" value="{{ old('name',isset($categoryEdit) ? $categoryEdit : '')}}"  />
                                         </div>
                                     <label class="col-form-label col-md-3 col-sm-3 label-error error-hide" ><span class="name-text"></span></label>
                                 </div>
@@ -49,3 +50,25 @@
     </div>
     <!-- /page content -->
 @endsection
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
