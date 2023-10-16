@@ -24,6 +24,10 @@ Route::get('blog',[FrontendIndexController::class,'blog']);
 Route::get('contact',[FrontendIndexController::class,'contact']);
 
 Route::get('product/detail/{id}',[ProductDetailController::class,'index']);
+Route::get('check/user', [FrontendIndexController::class, 'checkUser'])->name('checkUser');
+Route::get('user/register', [FrontendIndexController::class, 'registerForm'])->name('registerForm');
+Route::post('user/register/store', [FrontendIndexController::class, 'register'])->name('registerStore');
+
 
 Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function() {
     Route::get('logout',[LoginController::class,'getLogout'])->name('logout');

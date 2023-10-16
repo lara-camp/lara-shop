@@ -94,6 +94,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{ URL::asset('assets/frontend/js/map.com_maps_api_js_key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE') }}"></script>
 	<script src="{{ URL::asset('assets/frontend/js/gmaps.min.js') }}"></script>
 	<script src="{{ URL::asset('assets/frontend/js/main.js') }}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+   @yield('script')
 </body>
 
 </html>

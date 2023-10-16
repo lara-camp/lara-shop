@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('phone', 100); // Change the data type as needed.
             $table->string('email', 100);
             $table->longText('address');
-            $table->unsignedBigInteger('created_by');
-            $table->unsignedBigInteger('updated_by');
+            $table->string('password',190);
             $table->unsignedBigInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
