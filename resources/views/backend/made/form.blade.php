@@ -5,7 +5,7 @@
     <div class="right_col" role="main">
         <div class="">
             <div class="title_left">
-                <h3>Category Page</h3>
+                <h3>Made Page</h3>
             </div>
             <div class="clearfix"></div>
             <div class="row">

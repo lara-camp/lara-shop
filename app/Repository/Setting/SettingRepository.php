@@ -13,7 +13,7 @@ class SettingRepository implements SettingRepositoryInterface {
     public function update(array $data){
         $returnObj = array();
         $returnObj['SERVER_MESSAGE'] = ReturnMessage::INTERNAL_SERVER_ERROR;
-        // try{
+        try{
             $paramObj                   = Setting::find($data['id']);
             $image                      = $paramObj->logo_path;
             $paramObj->name             = $data['name'];
@@ -33,11 +33,10 @@ class SettingRepository implements SettingRepositoryInterface {
             }
             $returnObj['SERVER_MESSAGE'] = ReturnMessage::OK;
             return $returnObj;
-        // } catch(\Exception $e) {
-        //     dd($e->getMessage());
-        //     $returnObj['SERVER_MESSAGE'] = ReturnMessage::INTERNAL_SERVER_ERROR;
-        //     return $returnObj;
-        // }
+        } catch(\Exception $e) {
+            $returnObj['SERVER_MESSAGE'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+            return $returnObj;
+        }
 
     }
 }

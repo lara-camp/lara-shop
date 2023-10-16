@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Size\SizeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\IndexController;
 use App\Http\Controllers\MadeIn\MadeInController;
-use App\Http\Controllers\Product\GalleryController;
 
+use App\Http\Controllers\Product\GalleryController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Frontend\Home\FrontendIndexController;
@@ -59,6 +60,14 @@ Route::group(['prefix' => 'admin-backend','middleware' => ['admin']], function()
         Route::get('delete/{id}',[MadeInController::class,'madeDelete']);
         Route::post('update',[MadeInController::class,'madeUpdate'])->name('madeUpdate');
         Route::post('create',[MadeInController::class,'madeCreate'])->name('madeCreate');
+    });
+    Route::group(['prefix' => 'size'], function () {
+        Route :: get('create',[SizeController:: class,'form']);
+        Route :: get('list',[SizeController:: class,'index'])->name('sizeIndex');
+        Route :: get('delete/{id}',[SizeController:: class,'delete']);
+        Route :: get('edit/{id}',[SizeController:: class,'edit']);
+        Route :: post('create',[SizeController:: class,'store'])->name('sizeCreate');
+        Route :: post('update',[SizeController:: class,'update'])->name('sizeUpdate');
     });
     Route::get('setting',[SiteSettingController::class,'index'])->name('siteSetting');
     Route::post('setting', [SiteSettingController::class, 'update'])->name('settingUpdate');

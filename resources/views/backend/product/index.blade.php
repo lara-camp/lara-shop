@@ -28,6 +28,7 @@
                           <th>Thumbnail</th>
                           <th>Name</th>
                           <th>Category</th>
+                          <th>Size</th>
                           <th>Price</th>
                           <th>Stock</th>
                           <th>Made in</th>
@@ -44,6 +45,11 @@
                                         <td>
                                             @if($product->getCategory())
                                                 {{$product->getCategory->name}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($product->getProductSize())
+                                                {{$product->getProductSize->name}}
                                             @endif
                                         </td>
                                         <td>{{$product->price}} {{(getSiteSetting() != null) ? getSiteSetting()->price_unit: "" }}</td>

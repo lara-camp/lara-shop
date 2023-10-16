@@ -5,11 +5,12 @@ use App\Utility;
 use App\ReturnMessage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Repository\Size\SizeRepositoryInterface;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
-use App\Repository\Category\CategoryRepositoryInterface;
 use App\Repository\MadeIn\MadeInRepositoryInterface;
 use App\Repository\Product\ProductRepositoryInterface;
+use App\Repository\Category\CategoryRepositoryInterface;
 
 
 class ProductController extends Controller
@@ -17,26 +18,33 @@ class ProductController extends Controller
     private $categoryRepo;
     private $madeRepo;
     private $productRepo;
+    private $sizeRepo;
+
     public function  __construct(
         CategoryRepositoryInterface $categoryRepo,
         MadeInRepositoryInterface $madeRepo,
-        ProductRepositoryInterface $productRepo
+        ProductRepositoryInterface $productRepo,
+        SizeRepositoryInterface $sizeRepo
     ){
         DB::connection()->enableQueryLog();
         $this->categoryRepo = $categoryRepo;
         $this->madeRepo     = $madeRepo;
         $this->productRepo  = $productRepo;
+        $this->sizeRepo     = $sizeRepo;
+
 
     }
     public function form(){
         try{
             $categories = $this->categoryRepo->store();
             $mades      = $this->madeRepo->store();
+            $sizes      = $this->sizeRepo->get();
             $logs = "Product Create Form Screen::";
             Utility::saveDebugLog($logs);
             return view('backend.product.form',compact([
                 'categories',
-                'mades'
+                'mades',
+                'sizes'
             ]));
         }catch(\Exception $e){
             $logs = "Product Create Form Error Screen::";

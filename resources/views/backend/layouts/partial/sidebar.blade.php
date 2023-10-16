@@ -43,6 +43,13 @@
             </ul>
         </li>
 
+        <li><a><i class="fa fa-laptop"></i>Size<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+              <li><a href="{{ URL::asset('admin-backend/size/create')}}">Create</a></li>
+              <li><a href="{{ URL::asset('admin-backend/size/list')}}">Listing</a></li>
+            </ul>
+        </li>
+
           <li><a><i class="fa fa-edit"></i>Product<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="{{route('productForm')}}">Create</a></li>

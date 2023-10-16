@@ -15,6 +15,7 @@ class ProductRepository implements ProductRepositoryInterface {
         try{
             $paraObj                    = new Product();
             $paraObj->name              = $data['name'];
+            $paraObj->size              = $data['size'];
             $paraObj->price             = $data['price'];
             $paraObj->stock             = $data['stock'];
             $paraObj->made              = $data['made'];
@@ -49,6 +50,7 @@ class ProductRepository implements ProductRepositoryInterface {
         $productDatas  = Product::Select(
             'id',
             'name',
+            'size',
             'price',
             'stock',
             'made',
@@ -77,6 +79,7 @@ class ProductRepository implements ProductRepositoryInterface {
             $paraObj                    = Product::find($id);
             $oldImage                   = $paraObj->thumbnail;
             $paraObj->name              = $data['name'];
+            $paraObj->size              = $data['size'];
             $paraObj->price             = $data['price'];
             $paraObj->stock             = $data['stock'];
             $paraObj->made              = $data['made'];
@@ -141,8 +144,8 @@ class ProductRepository implements ProductRepositoryInterface {
                         ->inRandomOrder() // Randomize the order of results
                         ->limit(12)      // Limit the results to 12
                         ->get();
-    
+
         return $productDatas;
     }
-    
+
 }

@@ -37,4 +37,7 @@ class Product extends Model
     public function getProductGallery():HasMany{
         return $this->hasMany(Gallery::class,'product_id','id');
     }
+    public function getProductSize():BelongsTo{
+        return $this->belongsTo(Size::class,'size','id');
+    }
 }

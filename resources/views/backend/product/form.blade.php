@@ -70,6 +70,19 @@
                                 <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="bed-error"><span class="error"></span></label>
                             </div>
                             <div class="field item form-group">
+                                <label for="product-size" class="col-form-label col-md-3 col-sm-3  label-align">Product Size<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <select class="form-control" id="product-size" name="size">
+                                        <option value="">Choose Size</option>
+                                          @foreach ($sizes as $size)
+                                            <option value="{{$size->id}}"{{ old('size') == $size->id || (isset($product) && $product->size == $size->id) ? 'selected' : '' }}>{{$size->name}}</option>
+                                          @endforeach
+
+                                    </select>
+                                </div>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align label-error hide name-errror" id="bed-error"><span class="error"></span></label>
+                            </div>
+                            <div class="field item form-group">
                                 <label for="product-price" class="col-form-label col-md-3 col-sm-3 label-align">Product Price<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input type="number" id="product-price" class="form-control" name="price" value="{{old('price',isset($product->price)? $product->price : '')}}"/>
